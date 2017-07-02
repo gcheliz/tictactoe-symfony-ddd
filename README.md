@@ -1,7 +1,7 @@
 tictactoe-symfony-ddd
 ==============
 
-A Tic Tac Toe Game example built into complete stack solution for symfony DDD development environment with Nginx, PHP-FPM, MySQL, RedisDB, RabbitMQ-Stomp and ELK (ElasticSearch, Logstash and Kibana)  
+A Tic Tac Toe Game example built into complete stack solution for symfony DDD development environment using a Tactician MessageBus with Nginx, PHP-FPM, MySQL, RedisDB, RabbitMQ-Stomp and ELK (ElasticSearch, Logstash and Kibana)  
 
 # Prerequisites
 

@@ -1,0 +1,16 @@
+services:
+    tic_tac_toe.domain.game.command.register_game_handler:
+        class: TicTacToe\Domain\GameBundle\Command\RegisterGameHandler
+        arguments: ['@tic_tac_toe.domain.doctrine.unit_of_work.move', '@tic_tac_toe.domain.repository.game']
+        tags:
+            - { name: tactician.handler, command: TicTacToe\Domain\GameBundle\Command\RegisterGame, bus: command }
+
+    tic_tac_toe.domain.game.query.get_game_handler:
+        class: TicTacToe\Domain\GameBundle\Query\GetGameHandler
+        arguments: ['@tic_tac_toe.domain.doctrine.unit_of_work.move', '@tic_tac_toe.domain.repository.game']
+        tags:
+            - { name: tactician.handler, command: TicTacToe\Domain\GameBundle\Query\GetGame, bus: query }
+
+    tic_tac_toe.domain.service.game:
+        class: TicTacToe\Domain\GameBundle\Service\GameService
+        arguments: ['@tic_tac_toe.domain.doctrine.unit_of_work.game', '@tic_tac_toe.domain.repository.game','@tactician.commandbus.command']

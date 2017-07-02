@@ -1,0 +1,12 @@
+services:
+    tic_tac_toe.domain.doctrine.doctrine_factory.player:
+        class:  TicTacToe\Domain\PlayerBundle\Doctrine\DoctrineFactory
+        arguments: ['@doctrine']
+
+    tic_tac_toe.domain.doctrine.unit_of_work.player:
+        class: TicTacToe\InfrastructureBundle\ORM\IUnitOfWork
+        factory: ['@tic_tac_toe.domain.doctrine.doctrine_factory.player', createUnitOfWork]
+
+    tic_tac_toe.domain.repository.player:
+        class: TicTacToe\InfrastructureBundle\ORM\IRepository
+        factory: ['@tic_tac_toe.domain.doctrine.doctrine_factory.player', createPlayerRepository]

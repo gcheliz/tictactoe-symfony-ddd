@@ -1,0 +1,10 @@
+services:
+    tic_tac_toe.domain.move.command.register_move_handler:
+        class: TicTacToe\Domain\MoveBundle\Command\RegisterMoveHandler
+        arguments: ['@tic_tac_toe.domain.doctrine.unit_of_work.move', '@tic_tac_toe.domain.repository.move']
+        tags:
+            - { name: tactician.handler, command: TicTacToe\Domain\MoveBundle\Command\RegisterMove, bus: command }
+
+    tic_tac_toe.domain.service.move:
+        class: TicTacToe\Domain\MoveBundle\Service\MoveService
+        arguments: ['@tic_tac_toe.domain.doctrine.unit_of_work.move', '@tic_tac_toe.domain.repository.move','@tactician.commandbus.command']

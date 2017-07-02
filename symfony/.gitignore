@@ -1,0 +1,19 @@
+# IDE
+.idea/*
+
+# Bootstrap
+app/bootstrap*
+
+# Symfony2
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+app/SymfonyRequirements.php
+
+# Configuration files
+app/config/parameters.yml
+
+# Composer
+composer.lock

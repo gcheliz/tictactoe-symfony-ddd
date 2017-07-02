@@ -1,0 +1,28 @@
+services:
+    tic_tac_toe.domain.player.command.register_player_handler:
+        class: TicTacToe\Domain\PlayerBundle\Command\RegisterPlayerHandler
+        arguments: ['@tic_tac_toe.domain.doctrine.unit_of_work.player', '@tic_tac_toe.domain.repository.player']
+        tags:
+            - { name: tactician.handler, command: TicTacToe\Domain\PlayerBundle\Command\RegisterPlayer, bus: command }
+
+    tic_tac_toe.domain.player.query.get_player_by_name_handler:
+        class: TicTacToe\Domain\PlayerBundle\Query\GetPlayerByNameHandler
+        arguments: ['@tic_tac_toe.domain.doctrine.unit_of_work.player', '@tic_tac_toe.domain.repository.player']
+        tags:
+            - { name: tactician.handler, command: TicTacToe\Domain\PlayerBundle\Query\GetPlayerByName, bus: query }
+
+    tic_tac_toe.domain.player.query.get_player_handler:
+        class: TicTacToe\Domain\PlayerBundle\Query\GetPlayerHandler
+        arguments: ['@tic_tac_toe.domain.doctrine.unit_of_work.player', '@tic_tac_toe.domain.repository.player']
+        tags:
+            - { name: tactician.handler, command: TicTacToe\Domain\PlayerBundle\Query\GetPlayer, bus: query }
+
+    tic_tac_toe.domain.player.query.get_all_players_handler:
+        class: TicTacToe\Domain\PlayerBundle\Query\GetAllPlayersHandler
+        arguments: ['@tic_tac_toe.domain.doctrine.unit_of_work.player', '@tic_tac_toe.domain.repository.player']
+        tags:
+            - { name: tactician.handler, command: TicTacToe\Domain\PlayerBundle\Query\GetAllPlayers, bus: query }
+
+    tic_tac_toe.domain.service.player:
+        class: TicTacToe\Domain\PlayerBundle\Service\PlayerService
+        arguments: ['@tic_tac_toe.domain.doctrine.unit_of_work.player', '@tic_tac_toe.domain.repository.player','@tactician.commandbus.command']

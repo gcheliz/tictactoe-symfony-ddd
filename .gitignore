@@ -1,0 +1,8 @@
+.idea
+.composer/*
+/logs/nginx/*
+/logs/symfony/*
+!/logs/.gitkeep
+!/.composer/.gitkeep
+!/logs/nginx/.gitkeep
+!/logs/symfony/.gitkeep

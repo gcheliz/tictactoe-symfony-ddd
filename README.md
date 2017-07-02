@@ -58,6 +58,6 @@ Start the game
 Copyright
 -----------
 
-The command line game is based on command line ANNTicTacToe repo:
+The command line interface of this game is based on this repo:
     
     https://github.com/PHPGames/FANNTicTacToe

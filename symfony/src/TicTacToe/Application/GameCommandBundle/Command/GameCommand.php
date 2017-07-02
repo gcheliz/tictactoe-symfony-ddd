@@ -40,8 +40,6 @@ class GameCommand extends ContainerAwareCommand
     protected $gameService;
     /** @var  MoveService */
     protected $moveService;
-    protected $humanName = 'Player1';
-    protected $humanName2 = 'Player2';
 
     protected function configure()
     {
@@ -70,8 +68,10 @@ class GameCommand extends ContainerAwareCommand
         $player2 = $this->playerService->findPlayerByName('Player2');
 
         if (!$player1) {
-            $player2 = $this->playerService->save('Player1','player1');
-        }elseif(!$player2) {
+            $player1 = $this->playerService->save('Player1','player1');
+        }
+
+        if(!$player2) {
             $player2 = $this->playerService->save('Player2','player2');
         }
 
